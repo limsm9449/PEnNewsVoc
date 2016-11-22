@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sleepingbear.pennewsvoc">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.WebViewActivity"
+            android:label="@string/title_activity_webview"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.WordViewActivity"
+            android:label="@string/title_activity_word_view"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.Study1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.Study2Activity"
+            android:label="@string/title_activity_study2"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.Study3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.Study4Activity"
+            android:label="@string/title_activity_study4"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.VocabularyActivity"
+            android:label="@string/title_activity_vocabulary"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.SentenceViewActivity"
+            android:label="@string/title_activity_sentence_view"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.Study5Activity"
+            android:label="@string/title_activity_study5"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".HelpActivity"
+            android:label="@string/title_activity_help"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.StudyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.PatchActivity"
+            android:label="@string/title_activity_patch"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.MySampleActivity"
+            android:label="@string/title_activity_my_sample"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialTheme" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.WebDictionaryActivity"
+            android:label="@string/title_activity_web_dictionary"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.sleepingbear.pennewsvoc.WebTranslateActivity"
+            android:label="@string/title_activity_web_translate"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>
