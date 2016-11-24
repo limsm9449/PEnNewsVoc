@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
+import android.support.multidex.MultiDex;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -517,6 +518,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if ( selectedTab == 3 ) {
             ((VocabularyFragment) adapter.getItem(selectedTab)).changeListView();
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(context);
+        MultiDex.install(this);
     }
 }
 
