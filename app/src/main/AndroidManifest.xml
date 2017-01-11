@@ -91,10 +91,24 @@
         <activity
             android:name="com.sleepingbear.pennewsvoc.WebDictionaryActivity"
             android:label="@string/title_activity_web_dictionary"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.sleepingbear.pennewsvoc.WebTranslateActivity"
             android:label="@string/title_activity_web_translate"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <service android:name=".MySpeechService">
+            <intent-filter>
+                <action android:name="com.sleepingbear.ehdictandvoc.MySpeechService" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".Study6Activity"
+            android:label="@string/title_activity_study6"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
