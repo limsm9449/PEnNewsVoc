@@ -5,17 +5,17 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "com.sleepingbear.pennewsvoc"
-        minSdkVersion 17
+        minSdkVersion 15
         targetSdkVersion 24
         versionCode 5
         versionName "1.0.5"
-        multiDexEnabled true
+        //multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    dexOptions {
-        javaMaxHeapSize "4g"
-        preDexLibraries = false
-    }
+    //dexOptions {
+    //    javaMaxHeapSize "4g"
+    //    preDexLibraries = false
+    //}
     buildTypes {
         release {
             minifyEnabled false
@@ -31,11 +31,11 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'
-    compile 'com.google.android.gms:play-services:9.6.1'
-    compile 'com.google.android.gms:play-services-ads:9.6.1'
+    //compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
     compile 'com.android.support:support-v4:24.2.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/jsoup-1.7.2.jar')
     compile files('libs/microsoft-translator-java-api-0.6.2-jar-with-dependencies.jar')
-    compile 'com.android.support:multidex:1.0.0'
+    //compile 'com.android.support:multidex:1.0.0'
 }
