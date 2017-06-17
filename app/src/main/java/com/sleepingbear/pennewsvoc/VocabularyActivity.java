@@ -197,6 +197,7 @@ public class VocabularyActivity extends AppCompatActivity implements View.OnClic
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 adapter.delete(kind);
+                                DicUtils.setDbChange(getApplicationContext());
 
                                 isChange = true;
                             }
@@ -242,6 +243,7 @@ public class VocabularyActivity extends AppCompatActivity implements View.OnClic
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             adapter.copy(kindCodes[mSelect]);
+                            DicUtils.setDbChange(getApplicationContext());
 
                             isChange = true;
                         }
@@ -283,6 +285,7 @@ public class VocabularyActivity extends AppCompatActivity implements View.OnClic
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             adapter.move(kind, kindCodes[mSelect]);
+                            DicUtils.setDbChange(getApplicationContext());
 
                             isChange = true;
                         }
@@ -379,6 +382,7 @@ class VocabularyCursorAdapter extends CursorAdapter {
     private boolean isEditing = false;
     private boolean[] isCheck;
     private String[] entryId;
+    int fontSize = 0;
 
     static class ViewHolder {
         protected CheckBox memorizationCheck;
@@ -393,6 +397,8 @@ class VocabularyCursorAdapter extends CursorAdapter {
         mCursor = cursor;
         mActivity = activity;
         mDb = db;
+
+        fontSize = Integer.parseInt( DicUtils.getPreferencesValue( context, CommConstants.preferences_font ) );
 
         isCheck = new boolean[cursor.getCount()];
         entryId = new String[cursor.getCount()];
@@ -474,6 +480,12 @@ class VocabularyCursorAdapter extends CursorAdapter {
         ((TextView) view.findViewById(R.id.my_tv_spelling)).setText(DicUtils.getString(cursor.getString(cursor.getColumnIndexOrThrow("SPELLING"))));
         ((TextView) view.findViewById(R.id.my_tv_date)).setText(DicUtils.getString(cursor.getString(cursor.getColumnIndexOrThrow("INS_DATE"))));
         ((TextView) view.findViewById(R.id.my_tv_mean)).setText(DicUtils.getString(cursor.getString(cursor.getColumnIndexOrThrow("MEAN"))));
+
+        //사이즈 설정
+        ((TextView) view.findViewById(R.id.my_tv_word)).setTextSize(fontSize);
+        ((TextView) view.findViewById(R.id.my_tv_spelling)).setTextSize(fontSize);
+        ((TextView) view.findViewById(R.id.my_tv_date)).setTextSize(fontSize);
+        ((TextView) view.findViewById(R.id.my_tv_mean)).setTextSize(fontSize);
 
         //암기 체크박스
         if ( "Y".equals(cursor.getString(cursor.getColumnIndexOrThrow("MEMORIZATION"))) ) {
