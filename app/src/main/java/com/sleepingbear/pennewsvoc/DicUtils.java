@@ -505,4 +505,17 @@ public class DicUtils {
         return rtn;
     }
 
+    public static String getCurrentDateTime() {
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int min = c.get(Calendar.MINUTE);
+        int sec = c.get(Calendar.SECOND);
+
+        return year + "." + (month + 1 > 9 ? "" : "0") + (month + 1) + "." + (day > 9 ? "" : "0") + day + " " + (hour > 9 ? "" : "0") + hour + ":" + (min > 9 ? "" : "0") + min + ":" + (sec > 9 ? "" : "0") + sec;
+    }
+
 }

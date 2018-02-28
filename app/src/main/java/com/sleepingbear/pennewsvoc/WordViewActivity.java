@@ -97,6 +97,9 @@ public class WordViewActivity extends AppCompatActivity implements View.OnClickL
 
             ActionBar ab = (ActionBar) getSupportActionBar();
             ab.setTitle(word + " 검색");
+        } else {
+            word = "";
+            kind = "";
         }
         wordCursor.close();
     }

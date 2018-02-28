@@ -24,12 +24,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.memetix.mst.language.Language;
-import com.memetix.mst.translate.Translate;
 
 import java.util.Locale;
 
@@ -70,36 +66,12 @@ public class SentenceViewActivity extends AppCompatActivity implements View.OnCl
         db = dbHelper.getWritableDatabase();
 
         Bundle b = getIntent().getExtras();
-        if ( "".equals(b.getString("foreign")) ) {
-            ((TextView) findViewById(R.id.my_c_sv_tv_foreign)).setText("");
-            ((TextView) findViewById(R.id.my_c_sv_tv_han)).setText("");
-        } else {
-            notHan = b.getString("foreign");
-            han = b.getString("han");
-
-            if ( "".equals(han) ) {
-                new Thread() {
-                    public void run() {
-                        Translate.setClientId("limsm9449");
-                        Translate.setClientSecret("4uv10iwHn+rZrUr9reTDRBML5l1JdpgHXOlgfaKYOjQ=");
-
-                        try {
-                            han = Translate.execute(notHan, Language.AUTO_DETECT, Language.KOREAN);
-
-                            Bundle bundle = new Bundle();
-                            bundle.putString("han", han);
-
-                            Message msg = handler.obtainMessage();
-                            msg.setData(bundle);
-                            handler.sendMessage(msg);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }.start();
-            } else {
-                changeListView();
-            }
+        notHan = b.getString("foreign").replaceAll("'"," ");
+        han = b.getString("han").replaceAll("'"," ");
+        String onlyWordList = b.getString("onlyWordList");
+        if ( "Y".equals(onlyWordList) ) {
+            ((RelativeLayout) this.findViewById(R.id.my_rl_1)).setVisibility(View.GONE);
+            ab.setTitle("단어");
         }
 
         ImageButton mySample = (ImageButton) findViewById(R.id.my_c_sv_ib_mysample);
@@ -111,6 +83,8 @@ public class SentenceViewActivity extends AppCompatActivity implements View.OnCl
             isMySample = false;
             mySample.setImageResource(android.R.drawable.star_off);
         }
+
+        changeListView();
 
         ImageButton ib_tts = (ImageButton) findViewById(R.id.my_c_sv_ib_tts);
         ib_tts.setOnClickListener(this);
