@@ -31,9 +31,10 @@ public class PatchActivity extends AppCompatActivity {
 
         patch.append("* 신규 패치" + CommConstants.sqlCR);
         patch.append("" + CommConstants.sqlCR);
+        patch.append("- 영어 사이트 추가" + CommConstants.sqlCR);
+        patch.append("" + CommConstants.sqlCR);
+        patch.append("" + CommConstants.sqlCR);
         patch.append("- 영어 뉴스 기능 개선" + CommConstants.sqlCR);
-        patch.append("" + CommConstants.sqlCR);
-        patch.append("" + CommConstants.sqlCR);
         patch.append("- 환경설정에서 단어상세 화면의 상단에 있는 콤보값을 설정하도록 수정(Naver, Daum, 예제)" + CommConstants.sqlCR);
         patch.append("- 환경설정에서 폰트 사이즈 변경 가능하도록 수정" + CommConstants.sqlCR);
         patch.append("- 단어장 상세 부분을 네이버 검색, 다움 검색으로 변경하였습니다." + CommConstants.sqlCR);
